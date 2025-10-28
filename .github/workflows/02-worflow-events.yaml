@@ -1,0 +1,10 @@
+name: 02 - Workflow Events
+
+on: push
+
+jobs:
+  echo:
+     runs-on: ubunto-lastest
+     steps:
+        - name: Show the trigger
+          run: prints and name
