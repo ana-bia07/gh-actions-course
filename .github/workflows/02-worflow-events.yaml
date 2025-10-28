@@ -7,4 +7,4 @@ jobs:
      runs-on: ubunto-lastest
      steps:
         - name: Show the trigger
-          run: prints and name
+          run: echo "I-ve been trigger by a(n) ${{github.event_name}} event."
