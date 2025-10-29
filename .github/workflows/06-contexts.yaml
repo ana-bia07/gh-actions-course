@@ -22,4 +22,4 @@ jobs:
                 echo "Run ID: ${{github.run_id}}
                 echo "Run number: ${{github.run_number}}"
             - name: Retriver Variable
-              run: echo "${{vars.MY_VAR}}"
+              run: echo "${{env.MY_VAR}}"
