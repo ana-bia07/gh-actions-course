@@ -1,4 +1,5 @@
 name: 06 - Contexts
+run-name: 06 - Contexts | DEGUB - ${{ inputs.debug}}
 
 on:
     push:
