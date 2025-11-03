@@ -24,8 +24,8 @@ jobs:
               run: |
                 echo "$GITHUB_OUTPUT"
                 echo "status=${{inputs.build-status}}" >> "$GITHUB_OUTPUT" 
-                echo "output1:= value1" == "$GITHUB_OUTPUT"
-                echo "output1:= value1" == "$GITHUB_OUTPUT"
+                echo "output1= value1" >> "$GITHUB_OUTPUT"
+                echo "output1= value1" >> "$GITHUB_OUTPUT"
                 cat "$GITHUB_OUTPUT"
             - name: With mistake
               run: |
@@ -39,4 +39,4 @@ jobs:
             - name: Deploy
               run: echo "Deploying"
             - name: Print Outputs
-              run: echo "Output 1= ${{needs.build.output.output1}} "
+              run: echo "Output 1= ${{needs.build.outputs.output1}} "
