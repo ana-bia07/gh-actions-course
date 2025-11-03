@@ -16,8 +16,17 @@ jobs:
                 EOF
             - name: Bug step
               if: ${{ !cancelled() && contains(github.event.pull_request.title, 'fix') }}
+<<<<<<< HEAD
               run: echo "I am a"
             - name: I will execute
+=======
+              run: echo "I am a bug fix"
+            - name: Sleep for 20 sec
+              run: sleep 20
+            - name: Failing step
+              run: exit 1
+            - name: I will be skipped
+>>>>>>> 7e0c571ed08122473b18f99434bd38409981a56b
               if: ${{ success()}}
               run: echo "I will print if previous steps succeed"
             - name: I will be skipped
