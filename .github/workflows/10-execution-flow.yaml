@@ -18,7 +18,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Running unit test
-          if: ${{!inputs.pass-pass-unit-tests}}
+          if: ${{!inputs.pass-unit-tests}}
           run: exit 1
     deploy-nonprod:
       runs-on: ubuntu-latest
