@@ -3,7 +3,7 @@ name: 10 - Controlling the Execution Flow
 on:
     workflow_dispatch:
         inputs:
-            debpass-unit-tests:
+            pass-unit-tests:
                 type: boolean
                 description: whenever unit tests will pass or not
                 default: false
