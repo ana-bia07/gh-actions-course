@@ -20,7 +20,7 @@ jobs:
             - name: Build
               id: build
               #    echo <key>=<value>
-              run: echo "status=success" >> "$GITHUB_OUTPUT" 
+              run: echo "status=${{inputs.build-status}}" >> "$GITHUB_OUTPUT" 
     deploy:
         runs-on: ubuntu-latest
         if: ${{needs.build.outputs.build-status == 'success'}}
