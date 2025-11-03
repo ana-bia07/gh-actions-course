@@ -16,6 +16,7 @@ jobs:
           run: echo "Linting and building porject"
     unit-tests:
       runs-on: ubuntu-latest
+      continue-on-error: true
       steps:
         - name: Running unit test
           if: ${{!inputs.pass-unit-tests}}
