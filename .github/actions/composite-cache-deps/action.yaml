@@ -1,0 +1,31 @@
+name: Cache Node and NPM Dependencies
+description: Essa ação pertime o cache de ambos Node e dependencias NPM base do arquivo package-lock.json.
+
+inputs:
+  node-version:
+    description: Versao que deseja usar
+    default: 20.x
+    required: true
+  working-dir:
+    description: Diretorio que sua aplicação esta
+    default: .
+    required: false
+
+runs:
+  using: composite
+  steps: 
+    - name: Setuo NodeJS version ${{ inputs.node-version}}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node-version}}
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: ${{inputs.working-dir}}/nomde_modules
+        key: node-modules-${{hashFiles('${{inputs.working-dir}}/package-lock.json')}}
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm ci
+      shell: bash
+      working-directory: ${{ inputs.working-dir}}
