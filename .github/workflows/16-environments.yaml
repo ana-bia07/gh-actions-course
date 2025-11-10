@@ -8,9 +8,18 @@ on:
             default: stating
 
 jobs:
-    echo:
+    echo-staging:
       runs-on: ubuntu-latest
-      environment: ${{inputs.target-env}}
+      environment: staging
+      env:
+        my-env-value: ${{vars.MY_ENV_VALUE || 'default value'}}
+      steps:
+        - name: Echo vars
+          run: |
+            echo "Env variables: ${{ env.my-env-value}}"
+    echo-prod:
+      runs-on: ubuntu-latest
+      environment: prod
       env:
         my-env-value: ${{vars.MY_ENV_VALUE || 'default value'}}
       steps:
